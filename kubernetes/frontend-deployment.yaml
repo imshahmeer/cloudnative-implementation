@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: abdennour/go-to-do-frontend:rc
+        ports:
+        - containerPort: 8080
+        env:
+        - name: REACT_APP_DB_CONNECTION
+          value: "mongodb://${DB_USER}:${DB_PASS}@${DB_HOST}:27017/${DB_NAME}"
+        - name: REACT_APP_DB_NAME
+          value: "${DB_NAME}"
+      initContainers:
+      - name: env-gen
+        image: abdennour/dotenv-to-js-object:4ea
+        command: ["sh", "-c", "sleep 10 && node /data/index.js"]
+        volumeMounts:
+        - name: env-js
+          mountPath: /data
+      volumes:
+      - name: env-js
+        emptyDir: {}
