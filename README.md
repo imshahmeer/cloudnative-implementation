@@ -10,34 +10,25 @@ To deploy the application using the provided scripts, follow these steps:
    
    ```bash
    git clone https://github.com/imshahmeer/cloudnative-implementation.git
-
-**Start Minikube: Set up Minikube locally:**
-
- ```bash
-     minikube start
-
-**Set Up CI/CD:**
-
+Start Minikube: Set up Minikube locally:
+bash
+Copy code
+minikube start
+Set Up CI/CD:
 Fork this repository to your GitHub account.
 Set up Docker Hub credentials as secrets in your repository settings.
 Create CI workflows for frontend and API services.
-
-**Create Kubernetes Manifests:**
+Create Kubernetes Manifests:
 Refer to the docker-compose.yaml file and Helm charts for guidance.
 Ensure communication between the database and frontend pods is restricted.
-Apply the Kubernetes manifests to your Minikube cluster
-
- ```bash
+Apply the Kubernetes manifests to your Minikube cluster:
+bash
+Copy code
 kubectl apply -f manifests/
-
-**Set Up Infrastructure with Terraform:**
+Set Up Infrastructure with Terraform:
 Apply Terraform scripts to provision a local Minikube cluster and deploy ArgoCD:
-
- ```bash
+bash
+Copy code
 cd terraform/
 terraform init
 terraform apply
-
-
-
-
