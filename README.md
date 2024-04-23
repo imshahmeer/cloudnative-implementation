@@ -14,12 +14,14 @@ To deploy the application using the provided scripts, follow these steps:
 **Start Minikube: Set up Minikube locally:**
 
  ```bash
-minikube start
+     minikube start
 
 **Set Up CI/CD:**
+
 Fork this repository to your GitHub account.
 Set up Docker Hub credentials as secrets in your repository settings.
 Create CI workflows for frontend and API services.
+
 **Create Kubernetes Manifests:**
 Refer to the docker-compose.yaml file and Helm charts for guidance.
 Ensure communication between the database and frontend pods is restricted.
