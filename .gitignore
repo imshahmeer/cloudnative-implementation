@@ -23,3 +23,15 @@ yarn-debug.log*
 yarn-error.log*
 .vscode
 .env
+
+# Terraform files
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+
+# Local .terraform directories
+**/.terraform/*
+
+# .tfvars files that are intended to be kept secret
+*.tfvars
